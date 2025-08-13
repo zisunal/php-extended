@@ -16,5 +16,7 @@
         }
     ],
     "minimum-stability": "beta",
-    "require": {}
+    "require": {
+        "php": ">=8.1"
+    }
 }
