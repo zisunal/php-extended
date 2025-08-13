@@ -2,7 +2,7 @@
 
 ### use Separator from:
 ```php
-use Zisunal\PhpArrayExtended\Enums\Separator
+use Zisunal\PhpExtended\Enums\Separator
 ```
 ---
 - `Separator::COMMA`

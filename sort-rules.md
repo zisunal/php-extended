@@ -2,7 +2,7 @@
 
 ### use Separator from:
 ```php
-use Zisunal\PhpArrayExtended\Enums\SortRule
+use Zisunal\PhpExtended\Enums\SortRule
 ```
 ---
 - `SortRule::ASCENDING`

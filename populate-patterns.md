@@ -2,7 +2,7 @@
 
 ### use Separator from:
 ```php
-use Zisunal\PhpArrayExtended\Enums\PopulatePattern
+use Zisunal\PhpExtended\Enums\PopulatePattern
 ```
 ---
 - `PopulatePattern::SEQUENTIAL_INTEGER`
