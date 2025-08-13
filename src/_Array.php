@@ -253,9 +253,15 @@ class _Array implements ArrayInterface
         shuffle($this->items);
         return $this;
     }
-    public function concat(array ...$array): self
+    public function concat(array|_Array ...$array): self
     {
-        $this->items = array_merge($this->items, ...$array);
+        foreach ($array as $arr) {
+            if (is_array($arr)) {
+                $this->items = array_merge($this->items, $arr);
+            } elseif (is_a($arr, _Array::class)) {
+                $this->items = array_merge($this->items, $arr->all());
+            }
+        }
         return $this;
     }
     public function splice(int $offset, int $length = 0, array $replacement = []): self

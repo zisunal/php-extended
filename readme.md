@@ -26,7 +26,7 @@ composer require zisunal/php-extended
 use Zisunal\PhpExtended\_Array;
 
 $array = new _Array([1, 2, 3]);
-$array->add(4)->add(5)->remove(3)->concat(new _Array()->populate(15)->all())->shuffle();
+$array->add(4)->add(5)->remove(3)->concat(new _Array()->populate(15))->shuffle();
 print_r($array->all());
 echo $array->random();
 echo $array->toString();

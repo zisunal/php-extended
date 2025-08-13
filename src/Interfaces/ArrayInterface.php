@@ -435,10 +435,10 @@ interface ArrayInterface
      * // Will return [1, 2, 3, 6, 7, 8, 9]
      * ```
      * ?>
-     * @param array ...$array
+     * @param array|_Array ...$array
      * @return self
      */
-    public function concat(array ...$array): self;
+    public function concat(array|_Array ...$array): self;
     /**
      * Splice the array, removing elements and optionally replacing them.
      *
