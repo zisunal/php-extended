@@ -1,15 +1,17 @@
-# Zisunal PHP Array Extended
+# Zisunal PHP Extended
 
-A modern, flexible PHP array utility library.  
-Implements the [`ArrayInterface`](./src/Interfaces/ArrayInterface.php).
+A modern, flexible PHP utility library.  
+`_Array` Implements the [`ArrayInterface`](./src/Interfaces/ArrayInterface.php).
+`String` is under construction
+`Number` is under construction
 
 ---
 
 ## ✨ Features
 
-- Consistent, object-oriented array manipulation
+- Consistent, object-oriented array, string and number manipulation
 - Type-safe methods
-- Extensible interface for custom array utilities
+- Extensible interface for custom utilities
 
 ---
 
@@ -18,7 +20,7 @@ Implements the [`ArrayInterface`](./src/Interfaces/ArrayInterface.php).
 ```bash
 composer require zisunal/php-extended
 ```
-
+#### To use the `_Array` type:
 ```php
 use Zisunal\PhpExtended\_Array;
 
