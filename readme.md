@@ -1,10 +1,10 @@
 # Zisunal PHP Extended
 
 A modern, flexible PHP utility library.  
-`_Array` Implements the [`ArrayInterface`](./src/Interfaces/ArrayInterface.php).
-`Currency` Implements the [`CurrencyInterface`](./src/Interfaces/CurrencyInterface.php).
-`String` is under construction
-`Number` is under construction
+1. `_Array` Implements the [`ArrayInterface`](./src/Interfaces/ArrayInterface.php).
+2. `Currency` Implements the [`CurrencyInterface`](./src/Interfaces/CurrencyInterface.php).
+3. `String` is under construction
+4. `Number` is under construction
 
 ---
 
