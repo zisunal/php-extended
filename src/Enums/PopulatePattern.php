@@ -1,6 +1,6 @@
 <?php
 
-namespace Zisunal\PhpArrayExtended\Enums;
+namespace Zisunal\PhpExtended\Enums;
 
 enum PopulatePattern: string
 {

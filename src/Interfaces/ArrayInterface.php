@@ -1,11 +1,11 @@
 <?php
 
-namespace Zisunal\PhpArrayExtended\Interfaces;
+namespace Zisunal\PhpExtended\Interfaces;
 
-use Zisunal\PhpArrayExtended\_Array;
-use Zisunal\PhpArrayExtended\Enums\Separator;
-use Zisunal\PhpArrayExtended\Enums\SortRule;
-use Zisunal\PhpArrayExtended\Enums\PopulatePattern;
+use Zisunal\PhpExtended\_Array;
+use Zisunal\PhpExtended\Enums\Separator;
+use Zisunal\PhpExtended\Enums\SortRule;
+use Zisunal\PhpExtended\Enums\PopulatePattern;
 
 interface ArrayInterface
 {

@@ -1,12 +1,12 @@
 {
-    "name": "zisunal/php-array-extended",
-    "description": "zisunal/php-array (aka Array) is the ultimate PHP array helper library, combining every native PHP array feature with dozens of powerful, developer-friendly enhancements in one modern, consistent API. Whether you need dot notation access, deep merging, sorting by nested keys, plucking, grouping, flattening, or lazy evaluation for huge datasets, Array gives you the tools to handle it effortlessly - without juggling dozens of native function names or writing repetitive loops.",
+    "name": "zisunal/php-extended",
+    "description": "zisunal/php-extended is the ultimate PHP array, string, and number helper library, combining every native PHP array, string and number feature with dozens of powerful, developer-friendly enhancements in one modern, consistent API.",
     "type": "library",
     "license": "MIT",
     "version": "1.0.0-beta",
     "autoload": {
         "psr-4": {
-            "Zisunal\\PhpArrayExtended\\": "src/"
+            "Zisunal\\PhpExtended\\": "src/"
         }
     },
     "authors": [

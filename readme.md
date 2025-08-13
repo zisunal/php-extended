@@ -16,11 +16,11 @@ Implements the [`ArrayInterface`](./src/Interfaces/ArrayInterface).
 ## 🚀 Quick Start
 
 ```bash
-composer require zisunal/php-array
+composer require zisunal/php-extended
 ```
 
 ```php
-use Zisunal\PhpExtended\_Array; // Use the _Array class from Zisunal\PhpExtended\_Array;
+use Zisunal\PhpExtended\_Array;
 
 $array = new _Array([1, 2, 3]);
 $array->add(4);
@@ -56,8 +56,11 @@ $array->populate(15)->shuffle()->reverse()->random();
 ---
 
 ## 🧩 Methods Available
+### `String` and `Number` are under construction
 
 ### `_Array`
+- Remember that it is not `Array`❌, it is `_Array` ✅
+  
 |    Method   | Description                         | Arguments       | Return Type      |
 |-------------|-------------------------------------|-----------------|------------------|
 |    all      | Get all the elements as PHP array   |        X        |        X         |
