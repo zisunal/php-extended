@@ -1,7 +1,7 @@
 # Zisunal PHP Array Extended
 
 A modern, flexible PHP array utility library.  
-Implements the [`ArrayInterface`](./src/Interfaces/ArrayInterface).
+Implements the [`ArrayInterface`](./src/Interfaces/ArrayInterface.php).
 
 ---
 
