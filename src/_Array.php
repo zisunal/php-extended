@@ -11,14 +11,14 @@ class _Array implements ArrayInterface
 {
     private $items = [];
 
-    public function __construct(array $items = [])
+    public function __construct(array|_Array $items = [])
     {
         $this->items = $this->get_arrayable_items($items);
     }
 
     private function get_arrayable_items(mixed $args): array
     {
-        return is_array($args) ? $args : [$args];
+        return is_array($args) ? $args : (is_object($args) ? (is_a($args, _Array::class) ? $args->all() : [$args]) : [$args]);
     }
     public function all(): array
     {
@@ -40,7 +40,7 @@ class _Array implements ArrayInterface
     {
         return (object) $this->items;
     }
-    public function sort(SortRule $rule): _Array
+    public function sort(SortRule $rule = SortRule::ASCENDING): self
     {
         switch ($rule) {
             case SortRule::ASCENDING:
@@ -56,9 +56,9 @@ class _Array implements ArrayInterface
                 krsort($this->items);
                 break;
         }
-        return new _Array($this->items);
+        return $this;
     }
-    public function reverse(): _Array
+    public function reverse(): self
     {
         return new _Array(array_reverse($this->items));
     }
@@ -66,7 +66,7 @@ class _Array implements ArrayInterface
     {
         return $this->items[array_rand($this->items)] ?? null;
     }
-    public function populate(int $count = 10, PopulatePattern $pattern = PopulatePattern::SEQUENTIAL_INTEGER): _Array
+    public function populate(int $count = 10, PopulatePattern $pattern = PopulatePattern::SEQUENTIAL_INTEGER): self
     {
         $strings = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
         $this->items = match ($pattern) {
@@ -78,7 +78,7 @@ class _Array implements ArrayInterface
             PopulatePattern::RANDOM_FLOAT => array_map(fn() => (float) rand(), range(1, $count)),
             PopulatePattern::RANDOM => array_map(fn() => bin2hex(random_bytes(5)), range(1, $count)),
         };
-        return new _Array($this->items);
+        return $this;
     }
     public function sum(): float|int
     {
@@ -113,12 +113,12 @@ class _Array implements ArrayInterface
         $modes = array_keys($frequency, $maxFreq);
         return count($modes) === 1 ? $modes[0] : $modes;
     }
-    public function add(int | string $key, mixed $value): _Array
+    public function add(int | string $key, mixed $value): self
     {
         if (!isset($this->items[$key])) {
             $this->items[$key] = $value;
         }
-        return new _Array($this->items);
+        return $this;
     }
     public function first(): mixed
     {
@@ -132,35 +132,35 @@ class _Array implements ArrayInterface
     {
         return count($this->items);
     }
-    public function remove(int | string $key): _Array
+    public function remove(int | string $key): self
     {
         unset($this->items[$key]);
-        return new _Array($this->items);
+        return $this;
     }
-    public function prepend(int | string $key = null, mixed $value): _Array
+    public function prepend(int | string $key = null, mixed $value): self
     {
         if ($key !== null) {
             $this->items = [$key => $value] + $this->items;
         } else {
             array_unshift($this->items, $value);
         }
-        return new _Array($this->items);
+        return $this;
     }
-    public function addAt(int $position, int | string $key = null, mixed $value): _Array
+    public function addAt(int $position, int | string $key = null, mixed $value): self
     {
         if ($key !== null) {
             $this->items = array_slice($this->items, 0, $position, true) + [$key => $value] + array_slice($this->items, $position, null, true);
         } else {
             array_splice($this->items, $position, 0, $value);
         }
-        return new _Array($this->items);
+        return $this;
     }
-    public function update(int | string $key, mixed $value): _Array
+    public function update(int | string $key, mixed $value): self
     {
         if (isset($this->items[$key])) {
             $this->items[$key] = $value;
         }
-        return new _Array($this->items);
+        return $this;
     }
     public function has(int | string $value): bool
     {
@@ -206,7 +206,7 @@ class _Array implements ArrayInterface
         }
         return true;
     }
-    public function partition(callable $callback, int $partition_count = 2): _Array
+    public function partition(callable $callback, int $partition_count = 2): self
     {
         $partitions = [];
         foreach ($this->items as $item) {
@@ -218,15 +218,15 @@ class _Array implements ArrayInterface
         }
         return new _Array(array_slice($partitions, 0, $partition_count));
     }
-    public function map(callable $callback): _Array
+    public function map(callable $callback): self
     {
         $this->items = array_map($callback, $this->items);
-        return new _Array($this->items);
+        return $this;
     }
-    public function filter(callable $callback): _Array
+    public function filter(callable $callback): self
     {
         $this->items = array_filter($this->items, $callback);
-        return new _Array($this->items);
+        return $this;
     }
     public function reduce(callable $callback, mixed $initial = null): mixed
     {
@@ -238,29 +238,29 @@ class _Array implements ArrayInterface
             $callback($value, $key);
         }
     }
-    public function clear(): _Array
+    public function clear(): self
     {
         $this->items = [];
-        return new _Array($this->items);
+        return $this;
     }
     public function toString(Separator $separator = Separator::COMMA, bool $addSpace = false): string
     {
         $glue = $addSpace ? " {$separator->value} " : $separator->value;
         return implode($glue, $this->items);
     }
-    public function shuffle(): _Array
+    public function shuffle(): self
     {
         shuffle($this->items);
-        return new _Array($this->items);
+        return $this;
     }
-    public function concat(array ...$array): _Array
+    public function concat(array ...$array): self
     {
         $this->items = array_merge($this->items, ...$array);
-        return new _Array($this->items);
+        return $this;
     }
-    public function splice(int $offset, int $length = 0, array $replacement = []): _Array
+    public function splice(int $offset, int $length = 0, array $replacement = []): self
     {
         $removed = array_splice($this->items, $offset, $length, $replacement);
-        return new _Array($this->items);
+        return $this;
     }
 }

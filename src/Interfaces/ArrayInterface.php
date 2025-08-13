@@ -2,18 +2,28 @@
 
 namespace Zisunal\PhpExtended\Interfaces;
 
-use Zisunal\PhpExtended\_Array;
 use Zisunal\PhpExtended\Enums\Separator;
 use Zisunal\PhpExtended\Enums\SortRule;
 use Zisunal\PhpExtended\Enums\PopulatePattern;
+use Zisunal\PhpExtended\_Array;
 
 interface ArrayInterface
 {
     /**
-     * Get all elements from the array.
+     * _Array constructor.
      *
      * ```php
      * <?php
+     * $array = new _Array([1, 2, 3]);
+     * $array->all();
+     * ```
+     * @param array|_Array $items
+     */
+    public function __construct(array|_Array $items = []);
+    /**
+     * Get all elements from the array.
+     *
+     * ```php
      * <?php
      * $array = new _Array([1, 2, 3, 4, 5]);
      * $array->all();
@@ -28,7 +38,6 @@ interface ArrayInterface
      * Get a specific element from the array.
      *
      * ```php
-     * <?php
      * <?php
      * $array = new _Array([1, 2, "foo" => "bar", 4, 5]);
      * $array->get(0);
@@ -48,7 +57,6 @@ interface ArrayInterface
      *
      * ```php
      * <?php
-     * <?php
      * $array = new _Array([1, 2, 3]);
      * $array->add(3, 4);
      * // Will add 4 at 3rd index
@@ -61,14 +69,13 @@ interface ArrayInterface
      * ?>
      * @param int | string $key
      * @param mixed $value
-     * @return _Array
+     * @return self
      */
-    public function add(int | string $key, mixed $value): _Array;
+    public function add(int | string $key, mixed $value): self;
     /**
      * Get the first element from the array.
      *
      * ```php
-     * <?php
      * <?php
      * $array = new _Array([1, 2, 3]);
      * $array->first();
@@ -83,7 +90,6 @@ interface ArrayInterface
      *
      * ```php
      * <?php
-     * <?php
      * $array = new _Array([1, 2, 3]);
      * $array->last();
      * // Will return 3
@@ -96,7 +102,6 @@ interface ArrayInterface
      * Get the count of elements in the array.
      *
      * ```php
-     * <?php
      * <?php
      * $array = new _Array([1, 2, 3]);
      * $array->count();
@@ -111,7 +116,6 @@ interface ArrayInterface
      *
      * ```php
      * <?php
-     * <?php
      * $array = new _Array([1, 2, 3, "foo" => "bar"]);
      * $array->remove(1);
      * // Will remove 2 from the first index
@@ -120,14 +124,13 @@ interface ArrayInterface
      * ```
      * ?>
      * @param int | string $key
-     * @return _Array
+     * @return self
      */
-    public function remove(int | string $key): _Array;
+    public function remove(int | string $key): self;
     /**
      * Add a specific element to the start of the array.
      *
      * ```php
-     * <?php
      * <?php
      * $array = new _Array([1, 2, 3]);
      * $array->prepend(null, 0);
@@ -138,15 +141,14 @@ interface ArrayInterface
      * ?>
      * @param int | string $key
      * @param mixed $value
-     * @return _Array
+     * @return self
      */
-    public function prepend(int | string $key = null, mixed $value): _Array;
+    public function prepend(int | string $key = null, mixed $value): self;
     /**
      * Add a specific element to the array at a specific position.
      * This won't update existing elements. To update use `$array->update()` method instead.
      *
      * ```php
-     * <?php
      * <?php
      * $array = new _Array([1, 2, 3]);
      * $array->addAt(1, null, 1.5);
@@ -158,15 +160,14 @@ interface ArrayInterface
      * @param int $position
      * @param int | string $key
      * @param mixed $value
-     * @return _Array
+     * @return self
      */
-    public function addAt(int $position, int | string $key = null, mixed $value): _Array;
+    public function addAt(int $position, int | string $key = null, mixed $value): self;
     /**
      * Update a specific element in the array.
      * This won't add the element if it doesn't exist. To add it, use the `add` or `addAt` method.
      *
      * ```php
-     * <?php
      * <?php
      * $array = new _Array([1, 2, 3, "foo" => "bar"]);
      * $array->update(1, 2.5);
@@ -179,14 +180,13 @@ interface ArrayInterface
      * ?>
      * @param int | string $key
      * @param mixed $value
-     * @return _Array
+     * @return self
      */
-    public function update(int | string $key, mixed $value): _Array;
+    public function update(int | string $key, mixed $value): self;
     /**
      * Check if a specific value exists in the array.
      *
      * ```php
-     * <?php
      * <?php
      * $array = new _Array([1, 2, 3, "foo" => "bar"]);
      * $array->has(1);
@@ -309,9 +309,9 @@ interface ArrayInterface
      * ```
      * ?>
      * @param callable $callback
-     * @return _Array
+     * @return self
      */
-    public function map(callable $callback): _Array;
+    public function map(callable $callback): self;
     /**
      * Filter the array using a callback function.
      *
@@ -324,9 +324,9 @@ interface ArrayInterface
      * ```
      * ?>
      * @param callable $callback
-     * @return _Array
+     * @return self
      */
-    public function filter(callable $callback): _Array;
+    public function filter(callable $callback): self;
     /**
      * Iterate over each element in the array.
      *
@@ -351,9 +351,9 @@ interface ArrayInterface
      * // Will remove all elements from the array
      * ```
      * ?>
-     * @return _Array
+     * @return self
      */
-    public function clear(): _Array;
+    public function clear(): self;
     /**
      * Convert the array to a string.
      *
@@ -420,9 +420,9 @@ interface ArrayInterface
      * // Will randomize the order of elements in the array
      * ```
      * ?>
-     * @return _Array
+     * @return self
      */
-    public function shuffle(): _Array;
+    public function shuffle(): self;
     /**
      * Concatenate the array with another one or multiple array/s.
      *
@@ -436,9 +436,9 @@ interface ArrayInterface
      * ```
      * ?>
      * @param array ...$array
-     * @return _Array
+     * @return self
      */
-    public function concat(array ...$array): _Array;
+    public function concat(array ...$array): self;
     /**
      * Splice the array, removing elements and optionally replacing them.
      *
@@ -453,9 +453,9 @@ interface ArrayInterface
      * @param int $offset
      * @param int $length
      * @param array $replacement
-     * @return _Array
+     * @return self
      */
-    public function splice(int $offset, int $length = 0, array $replacement = []): _Array;
+    public function splice(int $offset, int $length = 0, array $replacement = []): self;
     /**
      * Get the array as a JSON string.
      *
@@ -509,10 +509,10 @@ interface ArrayInterface
      * // Will return [1, 2, 3]
      * ```
      * ?>
-     * @param SortRule $rule: can be SortRule::ASCENDING or SortRule::DESCENDING
-     * @return _Array
+     * @param SortRule $rule | Can be SortRule::ASCENDING, SortRule::DESCENDING, SortRule::KEY_ASCENDING, SortRule::KEY_DESCENDING | Default: SortRule::ASCENDING
+     * @return self
      */
-    public function sort(SortRule $rule): _Array;
+    public function sort(SortRule $rule = SortRule::ASCENDING): self;
     /**
      * Reduce the array to a single value.
      *
@@ -539,9 +539,9 @@ interface ArrayInterface
      * // Will return [3, 2, 1]
      * ```
      * ?>
-     * @return _Array
+     * @return self
      */
-    public function reverse(): _Array;
+    public function reverse(): self;
     /**
      * Get a random element from the array.
      *
@@ -576,9 +576,9 @@ interface ArrayInterface
      * - PopulatePattern::RANDOM_INTEGER
      * - PopulatePattern::RANDOM_FLOAT
      * - PopulatePattern::RANDOM
-     * @return _Array
+     * @return self
      */
-    public function populate(int $count = 10, PopulatePattern $pattern = PopulatePattern::SEQUENTIAL_INTEGER): _Array;
+    public function populate(int $count = 10, PopulatePattern $pattern = PopulatePattern::SEQUENTIAL_INTEGER): self;
     /**
      * Get the sum of the array's int/float type values.
      *
@@ -657,7 +657,7 @@ interface ArrayInterface
      * @param callable $callback
      * @param int $partition_count
      * How many parts will be created. Default is 2.
-     * @return _Array
+     * @return self
      */
-    public function partition(callable $callback, int $partition_count = 2): _Array;
+    public function partition(callable $callback, int $partition_count = 2): self;
 }

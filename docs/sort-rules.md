@@ -1,3 +1,5 @@
+[⬅️Back to _Array Instruction](./_Array.md)
+---
 ## Sort Rules List you can use in `sort` method's `parameter`
 
 ### use Separator from:

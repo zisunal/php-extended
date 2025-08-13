@@ -1,6 +1,6 @@
 {
     "name": "zisunal/php-extended",
-    "description": "zisunal/php-extended is the ultimate PHP array, string, and number helper library, combining every native PHP array, string and number feature with dozens of powerful, developer-friendly enhancements in one modern, consistent API.",
+    "description": "zisunal/php-extended is the ultimate PHP array, currency, string, and number helper library, combining every native PHP array, currency, string and number feature with dozens of powerful, developer-friendly enhancements in one modern, consistent API.",
     "type": "library",
     "license": "MIT",
     "version": "1.0.0-beta",

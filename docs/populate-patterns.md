@@ -1,3 +1,5 @@
+[⬅️Back to _Array Instruction](./_Array.md)
+---
 ## Populate Patterns List you can use in `populate` method's 2nd `parameter`
 
 ### use Separator from:

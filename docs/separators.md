@@ -1,3 +1,5 @@
+[⬅️Back to _Array Instruction](./_Array.md)
+---
 ## Separators List you can use in `toString` method's first `parameter`
 
 ### use Separator from:
