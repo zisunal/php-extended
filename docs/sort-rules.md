@@ -2,7 +2,7 @@
 ---
 ## Sort Rules List you can use in `sort` method's `parameter`
 
-### use Separator from:
+### use Sort Rule from:
 ```php
 use Zisunal\PhpExtended\Enums\SortRule
 ```

@@ -2,7 +2,7 @@
 ---
 ## Populate Patterns List you can use in `populate` method's 2nd `parameter`
 
-### use Separator from:
+### use Populate Pattern from:
 ```php
 use Zisunal\PhpExtended\Enums\PopulatePattern
 ```
