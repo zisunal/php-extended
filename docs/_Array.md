@@ -19,7 +19,7 @@ $array->populate(15)->shuffle()->reverse()->random();
 |    Method   | Description                         | Arguments       | Return Type      |
 |-------------|-------------------------------------|-----------------|------------------|
 | new _Array()| Create a new `_Array` instance      | array \| _Array $items (optional) | _Array |
-|    all      | Get all the elements as PHP array   |        X        |        X         |
+|    all      | Get all the elements as PHP array   |        X        |      array       |
 |    get      |Get a specific element from the array|int\|string $key |      mixed       |
 |    add      | Add a specific element to the array at the end. This won't update existing elements. To update use `update` method instead. |int\|string $key, mixed $value|      _Array      |
 |   first     |Get the first element from the array |        X        |       mixed      |
